@@ -1,0 +1,36 @@
+.login.hero {
+  background: linear-gradient(135deg, #2c2c2c, #00102c);
+}
+
+.login.box {
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px rgba(236, 233, 233, 0.1);
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.login.title {
+  color: #ffa500;
+  font-size: 42px;
+}
+
+.login.label {
+  color: #4a4a4a;
+}
+
+.login.input {
+  border-color: #ffa500;
+  color: #4a4a4a;
+  background-color: #f7f7f7;
+}
+
+.login.button {
+  background-color: #ffa500;
+  color: #ffffff;
+  border-color: #ffa500;
+  margin-top: 20px;
+}
+
+.login.link {
+  color: #ffa500;
+}
