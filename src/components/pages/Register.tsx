@@ -63,6 +63,16 @@ const Register: React.FC = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Nome"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          const input = document.querySelector(
+                            ".email"
+                          ) as HTMLInputElement;
+                          if (input) {
+                            input.focus();
+                          }
+                        }
+                      }}
                     />
                   </div>
                 </div>
@@ -71,11 +81,21 @@ const Register: React.FC = () => {
                   <label className="label register">Email</label>
                   <div className="control">
                     <input
-                      className="input register"
+                      className="input register email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          const input = document.querySelector(
+                            ".password"
+                          ) as HTMLInputElement;
+                          if (input) {
+                            input.focus();
+                          }
+                        }
+                      }}
                     />
                   </div>
                 </div>
@@ -84,11 +104,21 @@ const Register: React.FC = () => {
                   <label className="label register">Senha</label>
                   <div className="control">
                     <input
-                      className="input register"
+                      className="input register password"
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Senha"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          const input = document.querySelector(
+                            ".confirm-password"
+                          ) as HTMLInputElement;
+                          if (input) {
+                            input.focus();
+                          }
+                        }
+                      }}
                     />
                   </div>
                 </div>
@@ -97,11 +127,16 @@ const Register: React.FC = () => {
                   <label className="label register">Confirme a Senha</label>
                   <div className="control">
                     <input
-                      className="input register"
+                      className="input register confirm-password"
                       type="password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Confirme a Senha"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleRegister();
+                        }
+                      }}
                     />
                   </div>
                 </div>

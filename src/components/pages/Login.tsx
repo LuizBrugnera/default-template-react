@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../security/UseAuth";
 import "bulma/css/bulma.min.css";
 import "../css/Login.css";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify"; // Importa o react-toastify
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const { signIn } = useAuth();
+  const { signIn, signOut } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -30,6 +30,10 @@ const Login: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    signOut();
+  }, []);
+
   return (
     <section className="login hero is-fullheight">
       <div className="hero-body">
@@ -48,6 +52,17 @@ const Login: React.FC = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email"
+                      onKeyDown={(e) => {
+                        // setar o foco para o proximo campo ao clickar enter no email
+                        if (e.key === "Enter") {
+                          const input = document.querySelector(
+                            ".input[type='password']"
+                          ) as HTMLInputElement;
+                          if (input) {
+                            input.focus();
+                          }
+                        }
+                      }}
                     />
                   </div>
                 </div>
@@ -61,6 +76,11 @@ const Login: React.FC = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Senha"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleLogin();
+                        }
+                      }}
                     />
                   </div>
                 </div>
