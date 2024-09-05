@@ -10,7 +10,11 @@ interface PrivateRouteProps {
 const PrivateRoute: React.FC<PrivateRouteProps> = ({
   component: Component,
 }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <div>Carregando...</div>;
+  }
 
   return isAuthenticated ? <Component /> : <Navigate to="/login" />;
 };
