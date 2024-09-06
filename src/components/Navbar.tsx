@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar is-transparent">
       <div className="navbar-brand">
-        <a className="navbar-item" href="/">
+        <a className="navbar-item" href="/home">
           <label className="navbar-logo">Logo do Site</label>
         </a>
         <a
